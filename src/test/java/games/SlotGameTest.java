@@ -28,10 +28,7 @@ class SlotGameTest {
 
     @Test
     void negativeCredit_notOk() {
-        if (credit <= 0) {
-            Assertions.assertThrows(RuntimeException.class, () ->
-                    slotGame.startSlotGame(-1));
-        }
+        Assertions.assertThrows(RuntimeException.class, () ->
+                slotGame.startSlotGame(-1));
     }
-
 }

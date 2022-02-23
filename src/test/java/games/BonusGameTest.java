@@ -31,9 +31,7 @@ class BonusGameTest {
 
     @Test
     void negativeCredit_notOk() {
-        if (credit <= 0) {
-            Assertions.assertThrows(RuntimeException.class, () ->
-                    bonusGame.startBonusGame(-1));
-        }
+        Assertions.assertThrows(RuntimeException.class, () ->
+                bonusGame.startBonusGame(-1));
     }
 }
