@@ -9,7 +9,6 @@ class SlotGameTest {
     private static SlotGame slotGame;
     private static int credit;
     private int minWin;
-    private int maxWin;
 
     @BeforeAll
     public static void beforeAll() {
@@ -20,13 +19,11 @@ class SlotGameTest {
     @BeforeEach
     public void beforeEach() {
         minWin = 0;
-        maxWin = 30;
     }
 
     @Test
     void playGame_ok() {
-        Assertions.assertTrue(minWin <= slotGame.startSlotGame(credit)
-                && maxWin >= slotGame.startSlotGame(credit));
+        Assertions.assertTrue(minWin <= slotGame.startSlotGame(credit));
     }
 
     @Test

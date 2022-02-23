@@ -22,8 +22,25 @@ public class SlotGame {
             return wonCoins;
         }
         if (yourNumber == luckyNumberWithFreeGame) {
-            wonCoins = credit * 3;
-            startSlotGame(credit);
+            wonCoins = startFreeGame(credit * 3, credit);
+        }
+        return wonCoins;
+    }
+
+    public int startFreeGame(int wonCoins, int credit) {
+        List<Integer> randomList = gamesUtil.getRandom(10);
+        int yourNumber = random.nextInt(10);
+        int firstLuckyNumber = randomList.get(0);
+        int secondLuckyNumber = randomList.get(1);
+        int luckyNumberWithFreeGame = randomList.get(2);
+        if (yourNumber == firstLuckyNumber
+                || yourNumber == secondLuckyNumber) {
+            wonCoins += credit * 2;
+            return wonCoins;
+        }
+        if (yourNumber == luckyNumberWithFreeGame) {
+            wonCoins += credit * 3;
+            startFreeGame(wonCoins, credit);
         }
         return wonCoins;
     }
